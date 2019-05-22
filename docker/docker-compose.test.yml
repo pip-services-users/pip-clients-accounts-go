@@ -17,4 +17,4 @@ services:
       - GRPC_PORT=8090
 
   service:
-    image: pipdevs/pip-services-accounts-node:1.0.0-6-rc
+    image: pipdevs/pip-services-accounts-node:1.1.0-21-rc

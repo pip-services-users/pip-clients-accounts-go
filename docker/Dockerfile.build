@@ -21,7 +21,7 @@ RUN dep ensure -vendor-only
 ADD . .
 
 # Build the main binary
-RUN go build -o /go/bin/run .
+RUN go build .
 
 
 

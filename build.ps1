@@ -23,14 +23,14 @@ docker build --build-arg REPO=$repository -f docker/Dockerfile.build -t $buildIm
 
 # Create and copy compiled files, then destroy
 docker create --name $container $buildImage
-docker cp "$($container):/go/bin" ./dist
+# docker cp "$($container):/go/bin" ./dist
 docker rm $container
 
-if (!(Test-Path ./dist) -and $env:RETRY -eq $true) {
-    # if build failed and retries enabled run build again
-    Write-Host "Build failed, but retries enabled, so restarting build script again..."
-    ./build.ps1
-} elseif (!(Test-Path ./dist)) {
-    Write-Host "dist folder doesn't exist in root dir. Build failed. Watch logs above."
-    exit 1
-}
+# if (!(Test-Path ./dist) -and $env:RETRY -eq $true) {
+#     # if build failed and retries enabled run build again
+#     Write-Host "Build failed, but retries enabled, so restarting build script again..."
+#     ./build.ps1
+# } elseif (!(Test-Path ./dist)) {
+#     Write-Host "dist folder doesn't exist in root dir. Build failed. Watch logs above."
+#     exit 1
+# }
