@@ -9,5 +9,5 @@ run: install
 test:
 	@go test ./test/...
 
-protogen1:
+protogen:
 	protoc --go_out=plugins=grpc:. protos/accounts_v1.proto

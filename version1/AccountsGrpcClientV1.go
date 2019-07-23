@@ -11,7 +11,7 @@ type AccountGrpcClientV1 struct {
 
 func NewAccountGrpcClientV1() *AccountGrpcClientV1 {
 	return &AccountGrpcClientV1{
-		GrpcClient: *NewGrpcClient("accounts.Accounts"),
+		GrpcClient: *NewGrpcClient("accounts_v1.Accounts"),
 	}
 }
 

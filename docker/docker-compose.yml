@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   service:
-    image: pipdevs/pip-services-accounts-node:1.1.0-21-rc
+    image: pipdevs/pip-services-accounts-node:1.1.0-31-rc
     # links:
     #   - mongo
     #   - couchbase
