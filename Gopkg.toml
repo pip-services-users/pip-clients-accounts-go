@@ -27,11 +27,15 @@
 
 [[constraint]]
   name = "github.com/golang/protobuf"
-  version = "1.3.1"
+  version = "1.3.2"
 
 [[constraint]]
   branch = "master"
   name = "github.com/pip-services3-go/pip-services3-commons-go"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/pip-services3-go/pip-services3-grpc-go"
 
 [[constraint]]
   name = "github.com/stretchr/testify"
@@ -39,7 +43,7 @@
 
 [[constraint]]
   name = "google.golang.org/grpc"
-  version = "1.20.1"
+  version = "1.22.0"
 
 [prune]
   go-tests = true

@@ -3,15 +3,16 @@ package version1
 import (
 	"github.com/pip-services-users/pip-clients-accounts-go/protos"
 	"github.com/pip-services3-go/pip-services3-commons-go/data"
+	"github.com/pip-services3-go/pip-services3-grpc-go/clients"
 )
 
 type AccountGrpcClientV1 struct {
-	GrpcClient
+	clients.GrpcClient
 }
 
 func NewAccountGrpcClientV1() *AccountGrpcClientV1 {
 	return &AccountGrpcClientV1{
-		GrpcClient: *NewGrpcClient("accounts_v1.Accounts"),
+		GrpcClient: *clients.NewGrpcClient("accounts_v1.Accounts"),
 	}
 }
 
