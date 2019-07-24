@@ -25,7 +25,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:7d2fa0ad465ff4ea02edba8b4b654d439dd64359f4a05594335d3a73e6394e31"
+  digest = "1:6b0b17123a93f49ac1d59cb243aaab733a8707753594b6da9bd8645f7abd28dd"
   name = "github.com/pip-services3-go/pip-services3-commons-go"
   packages = [
     "config",
@@ -34,7 +34,7 @@
     "errors",
   ]
   pruneopts = "UT"
-  revision = "7c7e5c13433dff78b2ec598f31fb4c758d0d983d"
+  revision = "3c4af0068b453686818ba5990c349d9fe03007e4"
 
 [[projects]]
   branch = "master"
@@ -70,7 +70,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d31a812696686f0059241fa6c3b56d89ada56dddde4db1d5036de5c1084000c5"
+  digest = "1:1089c26a1b2dcc30f6a612adfce1d4ed8796b54c47ddec9c4d4d5f38a3edf5e7"
   name = "golang.org/x/net"
   packages = [
     "http/httpguts",
@@ -81,7 +81,7 @@
     "trace",
   ]
   pruneopts = "UT"
-  revision = "da137c7871d730100384dbcf36e6f8fa493aef5b"
+  revision = "ca1201d0de80cfde86cb01aea620983605dfe99b"
 
 [[projects]]
   branch = "master"
