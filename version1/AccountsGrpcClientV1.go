@@ -33,7 +33,7 @@ func (c *AccountGrpcClientV1) GetAccounts(correlationId string, filter *data.Fil
 	}
 
 	reply := new(protos.AccountPageReply)
-	err = c.Call("get_accounts", "", req, reply)
+	err = c.Call("get_accounts", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func (c *AccountGrpcClientV1) GetAccountById(correlationId string, id string) (r
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("get_account_by_id", "", req, reply)
+	err = c.Call("get_account_by_id", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *AccountGrpcClientV1) GetAccountByLogin(correlationId string, login stri
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("get_account_by_login", "", req, reply)
+	err = c.Call("get_account_by_login", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func (c *AccountGrpcClientV1) GetAccountByIdOrLogin(correlationId string, idOrLo
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("get_account_by_id_or_login", "", req, reply)
+	err = c.Call("get_account_by_id_or_login", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (c *AccountGrpcClientV1) CreateAccount(correlationId string, account *Accou
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("create_account", "", req, reply)
+	err = c.Call("create_account", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +143,7 @@ func (c *AccountGrpcClientV1) UpdateAccount(correlationId string, account *Accou
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("update_account", "", req, reply)
+	err = c.Call("update_account", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
@@ -165,7 +165,7 @@ func (c *AccountGrpcClientV1) DeleteAccountById(correlationId string, id string)
 	}
 
 	reply := new(protos.AccountObjectReply)
-	err = c.Call("delete_account_by_id", "", req, reply)
+	err = c.Call("delete_account_by_id", correlationId, req, reply)
 	if err != nil {
 		return nil, err
 	}
