@@ -8,10 +8,16 @@ import (
 	"github.com/pip-services3-go/pip-services3-commons-go/config"
 )
 
-var client *version1.AccountGrpcClientV1
-var fixture *AccountsClientFixtureV1
+type accountsGrpcCommandableClientV1Test struct {
+	client  *version1.AccountGrpcClientV1
+	fixture *AccountsClientFixtureV1
+}
 
-func setup(t *testing.T) *AccountsClientFixtureV1 {
+func newAccountsGrpcCommandableClientV1Test() *accountsGrpcCommandableClientV1Test {
+	return &accountsGrpcCommandableClientV1Test{}
+}
+
+func (c *accountsGrpcCommandableClientV1Test) setup(t *testing.T) *AccountsClientFixtureV1 {
 	var GRPC_HOST = os.Getenv("GRPC_HOST")
 	if GRPC_HOST == "" {
 		GRPC_HOST = "localhost"
@@ -27,22 +33,23 @@ func setup(t *testing.T) *AccountsClientFixtureV1 {
 		"connection.port", GRPC_PORT,
 	)
 
-	client = version1.NewAccountGrpcClientV1()
-	client.Configure(httpConfig)
-	client.Open("")
+	c.client = version1.NewAccountGrpcClientV1()
+	c.client.Configure(httpConfig)
+	c.client.Open("")
 
-	fixture = NewAccountsClientFixtureV1(client)
+	c.fixture = NewAccountsClientFixtureV1(c.client)
 
-	return fixture
+	return c.fixture
 }
 
-func teardown(t *testing.T) {
-	client.Close("")
+func (c *accountsGrpcCommandableClientV1Test) teardown(t *testing.T) {
+	c.client.Close("")
 }
 
-func TestCrudOperations(t *testing.T) {
-	fixture := setup(t)
-	defer teardown(t)
+func TestGrpcCrudOperations(t *testing.T) {
+	c := newAccountsGrpcCommandableClientV1Test()
+	fixture := c.setup(t)
+	defer c.teardown(t)
 
 	fixture.TestCrudOperations(t)
 }
