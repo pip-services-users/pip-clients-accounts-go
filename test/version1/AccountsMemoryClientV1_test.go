@@ -17,7 +17,7 @@ func newAccountsMemoryClientV1Test() *accountsMemoryClientV1Test {
 
 func (c *accountsMemoryClientV1Test) setup(t *testing.T) *AccountsClientFixtureV1 {
 
-	c.client = version1.NewAccountsMemoryClientV1(nil)
+	c.client = version1.NewEmptyAccountsMemoryClientV1()
 	c.fixture = NewAccountsClientFixtureV1(c.client)
 	return c.fixture
 }

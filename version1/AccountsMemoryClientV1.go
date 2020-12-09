@@ -26,6 +26,10 @@ func NewAccountsMemoryClientV1(accounts []AccountV1) *AccountsMemoryClientV1 {
 	return &c
 }
 
+func NewEmptyAccountsMemoryClientV1() *AccountsMemoryClientV1 {
+	return NewAccountsMemoryClientV1(nil)
+}
+
 func (c *AccountsMemoryClientV1) GetAccounts(correlationId string, filter *data.FilterParams,
 	paging *data.PagingParams) (result *data.DataPage, err error) {
 
