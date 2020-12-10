@@ -95,8 +95,8 @@ func (c *AccountsMemoryClientV1) CreateAccount(correlationId string, account *Ac
 	}
 
 	newItem := mdata.CloneObject(account)
-	item, _ := newItem.(AccountV1)
 	mdata.GenerateObjectId(&newItem)
+	item, _ := newItem.(AccountV1)
 
 	c.accounts = append(c.accounts, item)
 
