@@ -1,6 +1,7 @@
 package version1
 
 import (
+	"encoding/json"
 	"reflect"
 
 	"github.com/pip-services3-go/pip-services3-commons-go/data"
@@ -35,9 +36,19 @@ func (c *AccountsHttpCommandableClientV1) GetAccounts(correlationId string, filt
 	if err != nil {
 		return nil, err
 	}
+	response, _ := res.(*cdata.DataPage)
 
-	result, _ = res.(*cdata.DataPage)
-	return result, nil
+	accounts := make([]interface{}, 0)
+
+	for _, v := range response.Data {
+		buf, _ := json.Marshal(v)
+		item := AccountV1{}
+		json.Unmarshal(buf, &item)
+		accounts = append(accounts, &item)
+	}
+	var total int64 = (int64)(len(accounts))
+
+	return data.NewDataPage(&total, accounts), nil
 }
 
 func (c *AccountsHttpCommandableClientV1) GetAccountById(correlationId string, id string) (result *AccountV1, err error) {
