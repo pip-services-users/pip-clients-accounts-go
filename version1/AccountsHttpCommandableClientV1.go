@@ -98,6 +98,10 @@ func (c *AccountsHttpCommandableClientV1) GetAccountByIdOrLogin(correlationId st
 
 func (c *AccountsHttpCommandableClientV1) CreateAccount(correlationId string, account *AccountV1) (result *AccountV1, err error) {
 
+	if account.Id == "" {
+		account.Id = cdata.IdGenerator.NextLong()
+	}
+
 	params := cdata.NewAnyValueMapFromTuples(
 		"account", account,
 	)
