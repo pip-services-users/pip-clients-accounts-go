@@ -83,7 +83,7 @@ func (c *AccountsMemoryClientV1) CreateAccount(correlationId string, account *Ac
 
 	var index = -1
 	for i, v := range c.accounts {
-		if v.Id == account.Id {
+		if v.Login == account.Login {
 			index = i
 			break
 		}
